@@ -9,19 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.submitted = false;
+var post_service_1 = require("./post.service");
+var AddPostComponent = (function () {
+    function AddPostComponent(postService) {
+        this.postService = postService;
     }
-    AppComponent.prototype.onSubmit = function () { this.submitted = true; };
-    AppComponent = __decorate([
+    AddPostComponent.prototype.ngOnInit = function () {
+        // this.getPosts();
+        // console.log(this.posts);
+    };
+    AddPostComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app.component.html'
+            selector: 'add-post',
+            templateUrl: 'add-post.component.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [post_service_1.PostService])
+    ], AddPostComponent);
+    return AddPostComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AddPostComponent = AddPostComponent;
+//# sourceMappingURL=add-post.component.js.map

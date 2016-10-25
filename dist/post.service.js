@@ -17,7 +17,7 @@ require('rxjs/add/operator/toPromise');
 var PostService = (function () {
     function PostService(http) {
         this.http = http;
-        this.productUrl = '/api/getUsers';
+        this.productUrl = '/api/getPosts';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     PostService.prototype.getPosts = function () {
@@ -26,12 +26,7 @@ var PostService = (function () {
             .then(function (response) { return JSON.parse(response.text()); })
             .catch(this.handleError);
     };
-    // getPosts(): void {
-    //      this.http.get(this.productUrl)
-    //         .toPromise()
-    //         .then(response =>console.log(response.json().data) )
-    //         .catch(this.handleError)
-    // }
+    PostService.prototype.add = function () { };
     PostService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

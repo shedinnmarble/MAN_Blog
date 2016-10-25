@@ -15,6 +15,8 @@ var app_component_1 = require('./app.component');
 var post_service_1 = require("./post.service");
 var post_component_1 = require("./post.component");
 var http_1 = require("@angular/http");
+var add_post_component_1 = require("./add-post.component");
+var app_routing_module_1 = require("./app-routing.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,11 +25,13 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                app_routing_module_1.AppRoutingModule
             ],
             declarations: [
                 app_component_1.AppComponent,
-                post_component_1.PostComponent
+                post_component_1.PostComponent,
+                add_post_component_1.AddPostComponent
             ],
             providers: [post_service_1.PostService],
             bootstrap: [app_component_1.AppComponent]

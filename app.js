@@ -26,7 +26,9 @@ app.use(express.static(__dirname));
 app.use('/', routes);
 app.use('/api', api);
 app.use('/users', users);
-
+app.use('*',function(req,res){
+  res.sendFile(__dirname+"/index.html");
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

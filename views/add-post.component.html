@@ -1,0 +1,16 @@
+<form method="post" action="/api/addPost" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="postName">Post Name</label>
+        <input type="text" class="form-control" id="postName" placeholder="Post Name" name="postName">
+    </div>
+    <div class="form-group">
+        <label for="postAuthor">Author</label>
+        <input type="text" class="form-control" id="postAuthor" placeholder="Author">
+    </div>
+    <div class="form-group">
+        <label for="postContent">Post Name</label>
+
+        <textarea class="form-control" id="postContent" placeholder="Post Content" name="postContent"></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
