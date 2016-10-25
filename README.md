@@ -9,3 +9,8 @@ Blog System.
 /Rest API
 /Login
 /Home
+
+# How to run
+1. npm install
+2. npm start
+3. node app.js
