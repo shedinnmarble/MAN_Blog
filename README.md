@@ -1,4 +1,4 @@
-# MAN_Blog
+# Mongodb AngularJs Nodejs Blog System
 Mongodb AngularJs Nodejs Blog System
 
 Blog System.
