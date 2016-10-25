@@ -12,6 +12,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class PostService {
     private productUrl = '/api/getPosts'
+    private addPostUrl='/api/addPost'
     private headers = new Headers({ 'Content-Type': 'application/json' });
     constructor(private http: Http) { }
     getPosts(): Promise<Post[]> {
@@ -20,7 +21,14 @@ export class PostService {
             .then(response =>JSON.parse(response.text()) as Post[])
             .catch(this.handleError)
     }
-    add(){}
+    add(name:string,author:string,content:string):Promise<Post>{
+        console.log(name);
+        return this.http.
+        post(this.addPostUrl,{name:name,author:author,content:content})
+            .toPromise()
+            .then(response =>JSON.parse(response.text()) as Post)
+            .catch(this.handleError)
+    }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

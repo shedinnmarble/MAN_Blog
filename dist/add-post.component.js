@@ -10,18 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var post_service_1 = require("./post.service");
+var post_1 = require("./post");
 var AddPostComponent = (function () {
     function AddPostComponent(postService) {
         this.postService = postService;
     }
-    AddPostComponent.prototype.ngOnInit = function () {
-        // this.getPosts();
-        // console.log(this.posts);
+    AddPostComponent.prototype.addPost = function (name, author, content) {
+        console.log(name + "post");
+        this.postService.add(name, author, content);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', post_1.Post)
+    ], AddPostComponent.prototype, "module", void 0);
     AddPostComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'add-post',
-            templateUrl: 'add-post.component.html'
+            template: "<form >\n    <div class=\"form-group\">\n        <label for=\"postName\">Post Name</label>\n        <input type=\"text\" class=\"form-control\" id=\"postName\" placeholder=\"Post Name\" name=\"name\" #postName  />\n    </div>\n    <div class=\"form-group\">\n        <label for=\"postAuthor\">Author</label>\n        <input type=\"text\" class=\"form-control\" id=\"postAuthor\" placeholder=\"author\" name=\"author\" #postAuthor />\n    </div>\n    <div class=\"form-group\">\n        <label for=\"postContent\">Post Name</label>\n\n        <textarea class=\"form-control\" id=\"postContent\" placeholder=\"Post Content\" name=\"content\" #postContent></textarea>\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addPost(postName.value,postAuthor.value,postContent.value);$window.location.href = '/home';\">Submit</button>\n</form>"
         }), 
         __metadata('design:paramtypes', [post_service_1.PostService])
     ], AddPostComponent);

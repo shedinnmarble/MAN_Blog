@@ -18,6 +18,7 @@ var PostService = (function () {
     function PostService(http) {
         this.http = http;
         this.productUrl = '/api/getPosts';
+        this.addPostUrl = '/api/addPost';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     PostService.prototype.getPosts = function () {
@@ -26,7 +27,14 @@ var PostService = (function () {
             .then(function (response) { return JSON.parse(response.text()); })
             .catch(this.handleError);
     };
-    PostService.prototype.add = function () { };
+    PostService.prototype.add = function (name, author, content) {
+        console.log(name);
+        return this.http.
+            post(this.addPostUrl, { name: name, author: author, content: content })
+            .toPromise()
+            .then(function (response) { return JSON.parse(response.text()); })
+            .catch(this.handleError);
+    };
     PostService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

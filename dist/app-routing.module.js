@@ -11,10 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var add_post_component_1 = require("./add-post.component");
+var post_component_1 = require("./post.component");
 var routes = [
     {
         path: 'add',
         component: add_post_component_1.AddPostComponent
+    }, {
+        path: 'home',
+        component: post_component_1.PostComponent
+    }, {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
     }
 ];
 var AppRoutingModule = (function () {

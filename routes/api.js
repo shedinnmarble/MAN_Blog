@@ -27,15 +27,17 @@ router.get('/getPosts', function (req, res, next) {
     })
 
 });
-router.post("addPost",function (req,res) {
+router.post("/addPost",function (req,res) {
+    console.log(req.body)
     var post= new Post({
-        name:req.params.postName,
-        author:req.params.postAuthor,
-        content:req.params.postContent
+        name:req.body.name,
+        author:req.body.author,
+        content:req.body.content
     })
-    post.save(function(err){
+
+    post.save(function(err,data){
         if(err) console.log(err);
-        res.send("success");
+        res.send(data);
     })
 })
 
